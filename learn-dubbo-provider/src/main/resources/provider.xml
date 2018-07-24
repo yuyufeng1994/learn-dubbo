@@ -9,10 +9,10 @@
     <!-- use multicast registry center to export service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"  client="zkclient" />
     <!-- use dubbo protocol to export service on port 20880 -->
-    <dubbo:protocol name="dubbo" port="20881"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
     <!-- service implementation, as same as regular local bean -->
     <bean id="helloService" class="top.yuyufeng.learn.dubbo.service.impl.HelloServiceImpl" >
-        <constructor-arg value="100" />
+        <constructor-arg value="200000" />
     </bean>
     <!-- declare the service interface to be exported -->
     <dubbo:service   interface="top.yuyufeng.learn.dubbo.service.IHelloService" ref="helloService"/>
