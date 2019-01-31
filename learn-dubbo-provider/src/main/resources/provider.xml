@@ -12,9 +12,9 @@
     <dubbo:protocol name="dubbo" port="20880"/>
     <!-- service implementation, as same as regular local bean -->
     <bean id="helloService" class="top.yuyufeng.learn.dubbo.service.impl.HelloServiceImpl" >
-        <constructor-arg value="200000" />
+        <constructor-arg value="100" />
     </bean>
     <!-- declare the service interface to be exported -->
-    <dubbo:service   interface="top.yuyufeng.learn.dubbo.service.IHelloService" ref="helloService"/>
+    <dubbo:service  interface="top.yuyufeng.learn.dubbo.service.IHelloService" ref="helloService"/>
     <!--<dubbo:service loadbalance="roundrobin"   interface="top.yuyufeng.learn.dubbo.service.IHelloService" ref="helloService"/>-->
 </beans>

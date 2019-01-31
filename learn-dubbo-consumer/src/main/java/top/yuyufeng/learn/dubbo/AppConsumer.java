@@ -9,7 +9,6 @@ import top.yuyufeng.learn.dubbo.service.IHelloService;
  */
 public class AppConsumer {
     public static void main(String[] args) {
-
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"consumer.xml"});
         context.start();
         // Obtaining a remote service proxy

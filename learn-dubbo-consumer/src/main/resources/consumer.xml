@@ -11,6 +11,6 @@
     <!-- use multicast registry center to discover service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181" client="zkclient" />
     <!-- generate proxy for the remote service, then demoService can be used in the same way as the  local regular interface -->
-    <dubbo:reference  id="helloService" check="false" interface="top.yuyufeng.learn.dubbo.service.IHelloService" loadbalance="leastactive" filter="activelimit"/>
-    <!--<dubbo:reference  id="helloService" check="false" interface="top.yuyufeng.learn.dubbo.service.IHelloService" timeout="3000"/>-->
+    <!--<dubbo:reference  id="helloService" check="false" interface="top.yuyufeng.learn.dubbo.service.IHelloService" loadbalance="leastactive" filter="activelimit"/>-->
+     <dubbo:reference  id="helloService"  loadbalance="random"  check="false" interface="top.yuyufeng.learn.dubbo.service.IHelloService" timeout="10000"/>
 </beans>

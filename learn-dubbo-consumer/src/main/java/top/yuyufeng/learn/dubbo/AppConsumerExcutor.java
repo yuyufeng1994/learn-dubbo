@@ -17,6 +17,7 @@ public class AppConsumerExcutor {
 
 
     public static void main(String[] args) throws InterruptedException {
+        long benginTime = System.currentTimeMillis();
         AtomicInteger ai = new AtomicInteger();
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"consumer.xml"});
         context.start();
@@ -31,7 +32,9 @@ public class AppConsumerExcutor {
                     // Obtaining a remote service proxy
                     IHelloService helloService = (IHelloService) context.getBean("helloService");
                     // Executing remote methods
-                    String hello = helloService.saySomething("yuyufeng " + ai.incrementAndGet());
+                    int aiNow = ai.incrementAndGet();
+
+                    String hello = helloService.saySomething("yuyufeng 累计收到：" + aiNow + " 速度：" + (float) aiNow / (float) ((System.currentTimeMillis() - benginTime) / 1000));
                     // Display the call result
                     System.out.println(hello);
                     countDownLatch.countDown();
